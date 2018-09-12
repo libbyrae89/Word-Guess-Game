@@ -1,17 +1,24 @@
 header {
-    background-color: red;
+    background-color: black;
 }
 
 .display-4 {
-    padding-top: 20px;
     text-align: center;
+    font-family: 'Jolly Lodger', cursive;
 }
 
 .lead {
     text-align: center;
+    font-family: 'Jolly Lodger', cursive;
 }
 
 body {
-    background-color: red;
+    background-color: black;
+    color: red;
+    text-align: center;
+    font-family: 'Jolly Lodger', cursive;
 }
 
+p {
+    font-size: 30px;
+}
