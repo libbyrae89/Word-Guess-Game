@@ -1,7 +1,7 @@
+
 var spells = ["riddikulus", "obliviate", "sectumsempra", "avada kedavra", "alohomora", "lumos", "expelliarmus", "wingardium leviosa", "accio", "expecto patronum"]
 
 var guessesLeft = 10;
-
 var wrongGuess = [];
 var guessingWord = "";
 var blanks = 0;
@@ -15,13 +15,13 @@ function startGame() {
     guessesLeft = 10;
     blanksSuccess = [];
 
-    guessingWord = spells[Math.floor(Math.random() * wordBank.length)];
+    guessingWord = spells[Math.floor(Math.random() * spells.length)];
     chosenLtr = guessingWord.split("");
-    Blanks = chosenLtr.length;
+    blanks = chosenLtr.length;
     console.log(guessingWord);
-    console.log(Blanks);
+    console.log(blanks);
 
-    for (var i = 0; i < Blanks; i++) {
+    for (var i = 0; i < blanks; i++) {
             blanksSuccess.push("_");
     }
     console.log(blanksSuccess);
@@ -33,28 +33,22 @@ function startGame() {
 }
 
 function checkLetters(letter) {
+    console.log(letter)
     
     var letterInWord = false;
 
-    for(var i = 0; i < Blanks; i++) {
+    for(var i = 0; i < blanks; i++) {
         if(guessingWord[i] === letter) {
             letterInWord = true;
+            blanksSuccess[i] = letter;
             
         }
     }
 
-    if(letterInWord) {
-        for(i = 0; i < Blanks; i++) {
-            if(guessingWord[i] === letter) {
-                blanksSuccess[i] = letter;
-            }
-        }
-    }
-    else {
+    if(letterInWord === true)  {
         guessesLeft --;
         wrongGuess.push(letter);
     }
-  
 
 }
 
@@ -67,14 +61,14 @@ function finishGame() {
 
     if(chosenLtr.join(" ") === blanksSuccess.join(" ")) {
         winNumber++;
-        alert("Winner takes it all!!!!  Your word is " + guessingWord);
+        alert("Brilliant! Your word is " + guessingWord);
         document.getElementById("win-counter").innerHTML = winNumber;
         startGame();
     }
     else if(guessesLeft === 0) {
         document.getElementById("loss-counter").innerHTML = lossNumber ++;
         document.getElementById("wrong-guesses").innerHTML = "";
-        alert("I'm not taking a chance on you, " + guessingWord + " try again!");
+        alert("Detention with Filch! " + guessingWord + " Try again!");
         startGame();
     }
 }
@@ -87,7 +81,7 @@ document.onkeyup = function(event) {
     finishGame();
 }
 
-    document.getElementById("starter").onclick(resetGame)
+    document.getElementById("starter").onclick = startGame;
     wrongGuesses = [];
     guessesLeft = 10;
     blanksSuccess = [];

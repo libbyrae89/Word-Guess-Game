@@ -10,6 +10,7 @@ header {
 .lead {
     text-align: center;
     font-family: 'Jolly Lodger', cursive;
+    font-size: 30px;
 }
 
 body {
@@ -17,8 +18,11 @@ body {
     color: red;
     text-align: center;
     font-family: 'Jolly Lodger', cursive;
+    font-size: 30px;
 }
 
 p {
     font-size: 30px;
+    color: red;
+    font-family: 'Jolly Lodger', cursive;
 }
